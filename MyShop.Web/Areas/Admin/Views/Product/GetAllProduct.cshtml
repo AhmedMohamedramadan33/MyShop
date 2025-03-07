@@ -1,0 +1,45 @@
+﻿@model IEnumerable<MyShop.Entities.ViewModels.GetProduct>
+
+@{
+    ViewData["Title"] = "GetAllProduct";
+    ViewBag.CardTitle = "All Product";
+    ViewBag.PageTitle = "Product Management";
+}
+
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table " id="productTable">
+    <thead class="text-center">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryName)
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+   
+    <tbody>
+
+
+
+
+</tbody>
+</table>
+@section Scripts {
+    <script src="~/js/product.js"></script>
+}
