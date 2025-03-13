@@ -10,7 +10,7 @@ using MyShop.DataAccess.Data;
 
 namespace MyShop.DataAccess.Migrations
 {
-    [DbContext(typeof(AppDbContext))]
+    [DbContext(typeof(AppsDbContext))]
     [Migration("20250301150434_addcategorytable")]
     partial class addcategorytable
     {

@@ -6,10 +6,10 @@ namespace MyShop.DataAccess.Implementaions
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly AppDbContext _context;
+        private readonly AppsDbContext _context;
         private Hashtable _repositories;
 
-        public UnitOfWork(AppDbContext context)
+        public UnitOfWork(AppsDbContext context)
         {
             _context = context;
             _repositories = new Hashtable();

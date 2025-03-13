@@ -7,7 +7,7 @@ namespace MyShop.DataAccess.Implementaions
     public class CategoryRepository : GenericRepositories<Category>, ICategoryRepository
     {
         private readonly IUnitOfWork _unitOfWork;
-        public CategoryRepository(AppDbContext context, IUnitOfWork unitOfWork) : base(context)
+        public CategoryRepository(AppsDbContext context, IUnitOfWork unitOfWork) : base(context)
         {
             _unitOfWork = unitOfWork;
         }

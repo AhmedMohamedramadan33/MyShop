@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http
+@using Utilities
+@inject IHttpContextAccessor httpcontextaccessor
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -33,12 +36,21 @@
                         </ul>
                     </li>
                 </ul>
+                <partial name="_LoginPartial" />
                 <form class="d-flex">
-                    <button class="btn btn-outline-dark" type="submit">
+                    <a href="/customer/card/index" class="btn btn-outline-dark" type="submit">
                         <i class="bi-cart-fill me-1"></i>
                         Cart
+                        @if(httpcontextaccessor.HttpContext.Session.GetInt32(SD.sessionkey) != null)
+                        {
+                            <span class="badge bg-dark text-white ms-1 rounded-pill">
+                              @httpcontextaccessor.HttpContext.Session.GetInt32(SD.sessionkey)
+                              </span>
+                        }
+                        else{
                         <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-                    </button>
+                        }
+                    </a>
                 </form>
             </div>
         </div>
@@ -53,7 +65,7 @@
         </div>
     </header>
     <!-- Section-->
-   @renderBody()
+      @RenderBody()
     <!-- Footer-->
     <footer class="py-5 bg-dark">
         <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p></div>

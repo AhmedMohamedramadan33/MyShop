@@ -1,0 +1,194 @@
+﻿@model MyShop.Entities.ViewModels.OrderVM
+
+@{
+    ViewData["Title"] = "Detail";
+    Layout = "~/Views/Shared/_Customer.cshtml";
+}
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/summary.css" />
+</head>
+<body>
+
+    <header>
+    </header>
+    <form method="post" >
+    <div class="wrapper">
+        <div class="row">
+            <div class="col-lg-6 col-md-8 col-sm-10 offset-lg-0 offset-md-2 offset-sm-1">
+                <div class="mobile h5">Billing Address</div>
+                <div id="details" class="bg-white rounded pb-5">
+               <input type="hidden"  asp-for="@Model.OrderHeader.Id" />
+                                    
+                        <div class="row">
+
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label asp-for="@Model.OrderHeader.ApplicationUser.Email"></label>
+                                    <div class="d-flex jusify-content-start align-items-center rounded p-2"> <input type="text" asp-for="@Model.OrderHeader.ApplicationUser.Email" readonly> <span class="fas fa-check text-success pr-2"></span> </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label asp-for="@Model.OrderHeader.phonenumber"></label>
+                                    <div class="d-flex jusify-content-start align-items-center rounded p-2"> <input type="text" asp-for="@Model.OrderHeader.phonenumber"> <span class="fas fa-check text-success pr-2"></span> </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label asp-for="@Model.OrderHeader.OrderDate"></label>
+                                    <div class="d-flex jusify-content-start align-items-center rounded p-2"> <input type="text" asp-for="@Model.OrderHeader.OrderDate"> <span class="fas fa-check text-success pr-2"></span> </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label asp-for="@Model.OrderHeader.OrderStatus"></label>
+                                    <div class="d-flex jusify-content-start align-items-center rounded p-2"> <input type="text" asp-for="@Model.OrderHeader.OrderStatus"> <span class="fas fa-check text-success pr-2"></span> </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label asp-for="@Model.OrderHeader.PaymentStatus"></label>
+                                    <div class="d-flex jusify-content-start align-items-center rounded p-2"> <input type="text" asp-for="@Model.OrderHeader.PaymentStatus"> <span class="fas fa-check text-success pr-2"></span> </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label asp-for="@Model.OrderHeader.PaymentDate"></label>
+                                    <div class="d-flex jusify-content-start align-items-center rounded p-2"> <input type="text" asp-for="@Model.OrderHeader.PaymentDate"> <span class="fas fa-check text-success pr-2"></span> </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label asp-for="@Model.OrderHeader.SessionId"></label>
+                                    <div class="d-flex jusify-content-start align-items-center rounded p-2"> <input type="text" asp-for="@Model.OrderHeader.SessionId" readonly> <span class="fas fa-check text-success pr-2"></span> </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label asp-for="@Model.OrderHeader.TrackingNumber"></label>
+                                    <div class="d-flex jusify-content-start align-items-center rounded p-2"> <input type="text" asp-for="@Model.OrderHeader.TrackingNumber" id="tr"> <span class="fas fa-check text-success pr-2"></span> </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label asp-for="@Model.OrderHeader.Carrier"></label>
+                                    <div class="d-flex jusify-content-start align-items-center rounded p-2"> <input type="text" asp-for="@Model.OrderHeader.Carrier" id="cr"> <span class="fas fa-check text-success pr-2"></span> </div>
+                                </div>
+                            </div>
+                        </div>
+               
+                </div>
+
+            </div>
+            <div class="col-lg-6 col-md-8 col-sm-10 offset-lg-0 offset-md-2 offset-sm-1 pt-lg-0 pt-3">
+                <div id="cart" class="bg-white rounded">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="h6">Products</div>
+                    </div>
+            @foreach(var item in Model.OrderDetails)
+            {
+                   
+                        <div class="d-flex jusitfy-content-between align-items-center pt-3 pb-2 border-bottom">
+                            <div class="item pr-2">
+                                <img src="@item.Product.Image" alt="" width="80" height="80">
+                            </div>
+                            <div class="d-flex flex-column px-3"> <b class="h5 ms-5">@item.Product.Name </div>
+                            <div class="ml-auto"> <b class="h5 ms-5">$@item.Product.Price</b> </div>
+                        </div>
+
+                       
+            }
+
+                    <div class="d-flex align-items-center py-2">
+                        <div class="display-5">Total</div>
+                        <div class="ml-auto d-flex">
+                            <div class="font-weight-bold mx-5">@Model.OrderHeader.TotalPrice</div>
+                        </div>
+                    </div>
+                    </div>
+
+
+                    <div class="row pt-lg-3 pt-2 buttons mb-sm-0 mb-2">
+                        @if(Model.OrderHeader.OrderStatus==SD.Approve)
+                        {
+                              <div class="col-md-3 pt-md-0 pt-3">
+                                <button type="submit" class="btn btn-primary ml-auto" asp-action="Startproccess">
+                                    Start Process
+                                </button>
+                            </div>
+                        }
+                        @if (Model.OrderHeader.OrderStatus == SD.Processing)
+                        {
+                            <div class="col-md-3 pt-md-0 pt-3">
+                                <button type="submit" class="btn btn-success ml-auto"  asp-action="Startshipping" onclick="return checkdata()">
+                                    Start Shipping
+                                </button>
+                            </div>
+                        }
+
+                        <div class="col-md-3 pt-md-0 pt-3">
+                            <button type="submit" class="btn btn-danger ml-auto" asp-action="cancelorder">
+                                Cancel Order
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            
+        </div>
+    </div>
+    </form>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+        <script>
+            if(document.getElementById("tr").value == '' || document.getElementById("cr").value =='')
+            {
+                function checkdata() {
+                    Swal.fire({
+                        title: 'there is an error',
+                        text: "enter tracking number and carrier",
+                        icon: 'error',
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+
+                    });
+                }
+                return false;
+            }
+       return true;
+        </script>
+       
+
+</body>
+</html>
+
+

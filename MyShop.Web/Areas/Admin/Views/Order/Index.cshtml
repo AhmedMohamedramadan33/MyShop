@@ -1,0 +1,42 @@
+﻿@model IEnumerable<MyShop.Entities.Models.OrderHeader>
+
+@{
+    ViewData["Title"] = "GetAllOrder";
+    ViewBag.CardTitle = "All Order";
+    ViewBag.PageTitle = "Order Management";
+}
+
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table " id="productTable">
+    <thead class="text-center">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationUser.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.phonenumber)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.OrderStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalPrice)
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+    </tbody>
+</table>
+@section Scripts {
+    <script src="~/js/order.js"></script>
+}
+

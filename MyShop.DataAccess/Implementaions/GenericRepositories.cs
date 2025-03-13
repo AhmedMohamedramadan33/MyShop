@@ -7,9 +7,9 @@ namespace MyShop.DataAccess.Implementaions
 {
     public class GenericRepositories<T> : IGenericRepository<T> where T : class
     {
-        private readonly AppDbContext _context;
+        private readonly AppsDbContext _context;
         private readonly DbSet<T> _dbSet;
-        public GenericRepositories(AppDbContext context)
+        public GenericRepositories(AppsDbContext context)
         {
             _context = context;
             _dbSet = _context.Set<T>();

@@ -1,0 +1,51 @@
+﻿@model MyShop.Entities.Models.ShoppingCardVM
+<form method="post">
+    <input type="hidden" asp-for="@Model.ProductId" />
+
+<div class="container m-4">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-md-4 ms-5">
+            <img src="@Model.Product.Image" class=" img-thumbnail w-100 h-100 m-auto py-1" alt="Product Image">
+        </div>
+        <div class="col-md-6 ms-4">
+                <h6 class="small mb-1 text-black">@Model.Product.Category.Name</h6>
+                <h2 class="display-5 fw-bolder text-black"> @Model.Product.Name</h2>
+                <h6 class="text-black"> @Model.Product.Price $</h6>
+
+            <div class="d-flex  text-primary">
+
+                <input type="number" id="quantity" asp-for="@Model.Count" class="form-control w-25" >
+            </div>
+            <button type="submit" class="btn btn-success w-100 mt-3">🛒 Add to Cart</button>
+
+        </div>
+        </div>
+    </div>
+</form>
+@* <form method="post">
+<section class="py-5">
+        <input type="hidden" asp-for="@Model.ProductId" />
+
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="row gx-4 gx-lg-5 align-items-center">
+                <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="@Model.Product.Image" alt="..." /></div>
+            <div class="col-md-6">
+                    <div class="small mb-1">@Model.Product.Category.Name</div>
+                    <h1 class="display-5 fw-bolder">@Model.Product.Name</h1>
+                <div class="fs-5 mb-5">
+                        <span class="text-decoration-line-through">@Model.Product.Price</span>
+                    <span>$40.00</span>
+                </div>
+                <p class="lead">@Model.Product.Description</p>
+                <div class="d-flex">
+                        <input class="form-control text-center me-3" id="inputQuantity" type="num" asp-for="@Model.Count" style="max-width: 3rem" />
+                    <button class="btn btn-outline-dark flex-shrink-0" type="submit">
+                        <i class="bi-cart-fill me-1"></i>
+                        Add to cart
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</form> *@
